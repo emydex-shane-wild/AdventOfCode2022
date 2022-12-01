@@ -44,7 +44,7 @@ namespace AdventOfCode2022.Architecture
                     Console.WriteLine(challenge.ChallengeOne);
                     Console.WriteLine("Would you like to execute the challenge? (Y or N)");
                     var inputExecute  = Console.ReadKey();
-                    if(inputExecute.Key == ConsoleKey.K)
+                    if(inputExecute.Key == ConsoleKey.Y)
                     {
                         Console.WriteLine();
                         challenge.ExecuteChallengeOne();

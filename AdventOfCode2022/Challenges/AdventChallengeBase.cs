@@ -41,13 +41,4 @@ namespace AdventOfCode2022.Challenges
         
         #endregion
     }
-
-    public class AdventChallengeDay1 : AdventChallengeBase
-    {
-        #region Overrides of AdventChallengeBase
-
-        protected override int GetDayNumber() => 1;
-
-        #endregion
-    }
 }
