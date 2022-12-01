@@ -22,6 +22,9 @@ namespace AdventOfCode2022.Challenges.DayOne
 
         protected override int GetDayNumber() => 1;
 
+        protected override string GetChallengeOneText() => "Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?";
+        protected override string GetChallengeTwoText() => "Find the top three Elves carrying the most Calories. How many Calories are those Elves carrying in total?";
+
         protected override void ExecuteChallengeOneInternal()
         {
             var elves = new List<IElf>();
@@ -54,7 +57,32 @@ namespace AdventOfCode2022.Challenges.DayOne
 
         protected override void ExecuteChallengeTwoInternal()
         {
+            var elves = new List<IElf>();
             
+            using(var memoryStream = new MemoryStream(FileAccessHelper.GetResourceData("day1_input_challenge1")))
+            using(var reader = new StreamReader(memoryStream))
+            {
+                var id = 1;
+                var elf = new Elf(id++);
+                while (reader.Peek() >= 0)
+                {
+                    var line = reader.ReadLine();
+                
+                    if(line == Environment.NewLine || line.IsNullOrEmpty())
+                    {
+                        elves.Add(elf);
+                        elf = new Elf(id++);
+                    }
+                    else if(int.TryParse(line, out var calories))
+                    {
+                        elf.AddNewSnackCalories(calories);
+                    }
+                }
+
+                var topThreeElves = elves.OrderByDescending(e => e.SnackCaloriesTotal).Take(3).ToArray();
+                Console.WriteLine($"The top three elves are {string.Join(",", topThreeElves.Select(e => $"#{e.ElfId}({e.SnackCaloriesTotal} calories)"))}");
+                Console.WriteLine($"The total calories bewteen the three are {topThreeElves.Sum(e => e.SnackCaloriesTotal)} calories");
+            }
         }
 
         #endregion

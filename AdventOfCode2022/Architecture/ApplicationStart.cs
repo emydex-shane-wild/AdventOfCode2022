@@ -41,13 +41,35 @@ namespace AdventOfCode2022.Architecture
                 var challenge = _challengeProvider.AdventDates.FirstOrDefault(d => d.DayNumber == challengeNumber);
                 if(challenge != null)
                 {
-                    Console.WriteLine(challenge.ChallengeOne);
-                    Console.WriteLine("Would you like to execute the challenge? (Y or N)");
-                    var inputExecute  = Console.ReadKey();
-                    if(inputExecute.Key == ConsoleKey.Y)
+                    if(challenge.IsChallengeOneReady)
                     {
-                        Console.WriteLine();
-                        challenge.ExecuteChallengeOne();
+                        Console.WriteLine(challenge.ChallengeOne);
+                        Console.WriteLine("Would you like to execute the challenge? (Y or N)");
+                        var inputExecute  = Console.ReadKey();
+                        if(inputExecute.Key == ConsoleKey.Y)
+                        {
+                            Console.WriteLine();
+                            challenge.ExecuteChallengeOne();
+                        }
+                    }else
+                    {
+                        Console.WriteLine("Challenge One is not ready.");
+                    }
+                    
+
+                    if(challenge.IsChallengeTwoReady)
+                    {
+                        Console.WriteLine(challenge.ChallengeTwo);
+                        Console.WriteLine("Would you like to execute the challenge? (Y or N)");
+                        var inputExecute  = Console.ReadKey();
+                        if(inputExecute.Key == ConsoleKey.Y)
+                        {
+                            Console.WriteLine();
+                            challenge.ExecuteChallengeTwo();
+                        }
+                    }else
+                    {
+                        Console.WriteLine("Challenge Two is not ready.");
                     }
                 }
                 else Console.WriteLine($"A suitable challenge was not found for challenge number {challengeNumber}");
