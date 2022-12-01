@@ -68,6 +68,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Providers\AdventChallengeProvider.cs" />
+    <Compile Include="Challenges\AdventChallengeBase.cs" />
+    <Compile Include="Architecture\ApplicationStart.cs" />
+    <Compile Include="Architecture\Ioc\Modules\GeneralModule.cs" />
+    <Compile Include="Architecture\Ioc\IoC.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -75,5 +80,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

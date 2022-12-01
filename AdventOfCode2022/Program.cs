@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AdventOfCode2022.Architecture;
+using AdventOfCode2022.Architecture.Ioc;
+using Autofac;
 
 namespace AdventOfCode2022
 {
@@ -10,6 +8,17 @@ namespace AdventOfCode2022
     {
         static void Main(string[] args)
         {
+            IoC.LetsBegin();
+            Start();
+        }
+
+        private static void Start()
+        {
+            using (var scope = IoC.Container.BeginLifetimeScope())
+            {
+                var appStarter = scope.Resolve<IAppStart>();
+                appStarter.Start();
+            }
         }
     }
 }
