@@ -9,7 +9,7 @@
 
 #endregion
 
-namespace AdventOfCode2022.Challenges.DayOne
+namespace AdventOfCode2022.Architecture.Extensions
 {
     public static class StringExtensions
     {

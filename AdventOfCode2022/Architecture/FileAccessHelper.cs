@@ -12,7 +12,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace AdventOfCode2022.Challenges.DayOne
+namespace AdventOfCode2022.Architecture
 {
     public static class FileAccessHelper
     {
