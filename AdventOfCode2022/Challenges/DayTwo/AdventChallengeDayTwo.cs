@@ -2,7 +2,7 @@
 
 // **********************************************************************************************************************************
 // AdventChallengeDayTwo.cs
-// Last Modified: 2022/12/02 5:02 PM
+// Last Modified: 2022/12/03 11:30 PM
 // Last Modified By: Shane Wild
 // Copyright Emydex Technology Ltd @2022
 // **********************************************************************************************************************************
@@ -15,6 +15,24 @@ using AdventOfCode2022.Architecture;
 
 namespace AdventOfCode2022.Challenges.DayTwo
 {
+    public static class FileExtensions
+    {
+        #region Public Static Methods
+
+        public static void ProcessStream(string resourceName, Action<StreamReader> fileProcessAction)
+        {
+            using (var memoryStream = new MemoryStream(FileAccessHelper.GetResourceData(resourceName)))
+            {
+                using (var reader = new StreamReader(memoryStream))
+                {
+                    fileProcessAction(reader);
+                }
+            }
+        }
+
+        #endregion
+    }
+
     public class AdventChallengeDayTwo : AdventChallengeBase
     {
         #region Protected Overrides
@@ -25,48 +43,46 @@ namespace AdventOfCode2022.Challenges.DayTwo
 
         protected override void ExecuteChallengeOneInternal()
         {
-            using (var memoryStream = new MemoryStream(FileAccessHelper.GetResourceData("day2_input_challenge1")))
-            {
-                using (var reader = new StreamReader(memoryStream))
-                {
-                    var totalScore = 0;
+            FileExtensions.ProcessStream("day2_input_challenge1", r =>
+                                                                  {
+                                                                      var totalScore = 0;
 
-                    while (reader.Peek() >= 0)
-                    {
-                        var line = reader.ReadLine();
-                        var rpsChoices = line.Split(' ');
-                        var opponentChoice = rpsChoices[0];
-                        var yourChoice = rpsChoices[1];
+                                                                      while (r.Peek() >= 0)
+                                                                      {
+                                                                          var line = r.ReadLine();
+                                                                          var rpsChoices = line.Split(' ');
+                                                                          var opponentChoice = rpsChoices[0];
+                                                                          var yourChoice = rpsChoices[1];
 
-                        totalScore += CalculateChoiceValue(yourChoice) + CalculateRoundResult(opponentChoice, yourChoice);
-                    }
+                                                                          totalScore += CalculateChoiceValue(yourChoice) + CalculateRoundResult(opponentChoice, yourChoice);
+                                                                      }
 
-                    Console.WriteLine($"The strategy guide would give you a score of {totalScore}.");
-                }
-            }
+                                                                      Console.WriteLine($"The strategy guide would give you a score of {totalScore}.");
+                                                                  });
         }
 
         protected override void ExecuteChallengeTwoInternal()
         {
-            using (var memoryStream = new MemoryStream(FileAccessHelper.GetResourceData("day2_input_challenge1")))
-            {
-                using (var reader = new StreamReader(memoryStream))
-                {
-                    var totalScore = 0;
+            FileExtensions.ProcessStream("day2_input_challenge1", r =>
+                                                                  {
+                                                                      var totalScore = 0;
 
-                    while (reader.Peek() >= 0)
-                    {
-                        var line = reader.ReadLine();
-                        var rpsChoices = line.Split(' ');
-                        var opponentChoice = rpsChoices[0];
-                        var requiredChoice = GetChoiceFromRequiredOutcome(opponentChoice, rpsChoices[1]);
-                        totalScore += CalculateChoiceValue(requiredChoice) + CalculateRoundResult(opponentChoice, requiredChoice);
-                    }
+                                                                      while (r.Peek() >= 0)
+                                                                      {
+                                                                          var line = r.ReadLine();
+                                                                          var rpsChoices = line.Split(' ');
+                                                                          var opponentChoice = rpsChoices[0];
+                                                                          var requiredChoice = GetChoiceFromRequiredOutcome(opponentChoice, rpsChoices[1]);
+                                                                          totalScore += CalculateChoiceValue(requiredChoice) + CalculateRoundResult(opponentChoice, requiredChoice);
+                                                                      }
 
-                    Console.WriteLine($"The updated strategy guide would give you a score of {totalScore}.");
-                }
-            }
+                                                                      Console.WriteLine($"The updated strategy guide would give you a score of {totalScore}.");
+                                                                  });
         }
+
+        #endregion
+
+        #region Private Methods
 
         private string GetChoiceFromRequiredOutcome(string opponentChoice, string requiredResult)
         {
@@ -75,38 +91,43 @@ namespace AdventOfCode2022.Challenges.DayTwo
                 case "X":
                     switch (opponentChoice)
                     {
-                        case "A": return "Z";
-                        case "B": return "X";
-                        case "C": return "Y";
+                        case "A":
+                            return "Z";
+                        case "B":
+                            return "X";
+                        case "C":
+                            return "Y";
                         default:
                             throw new ArgumentException("Choice is unexpected. Should be A,B or C.");
                     }
                 case "Y":
                     switch (opponentChoice)
                     {
-                        case "A": return "X";
-                        case "B": return "Y";
-                        case "C": return "Z";
+                        case "A":
+                            return "X";
+                        case "B":
+                            return "Y";
+                        case "C":
+                            return "Z";
                         default:
                             throw new ArgumentException("Choice is unexpected. Should be A,B or C.");
                     }
                 case "Z":
                     switch (opponentChoice)
                     {
-                        case "A": return "Y";
-                        case "B": return "Z";
-                        case "C": return "X";
+                        case "A":
+                            return "Y";
+                        case "B":
+                            return "Z";
+                        case "C":
+                            return "X";
                         default:
                             throw new ArgumentException("Choice is unexpected. Should be A,B or C.");
                     }
                 default:
-                            throw new ArgumentException("Choice is unexpected. Should be X,Y or Z.");
+                    throw new ArgumentException("Choice is unexpected. Should be X,Y or Z.");
             }
         }
-
-        #endregion
-
-        #region Private Methods
 
         private int CalculateRoundResult(string opponentChoice, string yourChoice)
         {

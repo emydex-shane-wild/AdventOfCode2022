@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Challenges\DayOne\AdventChallengeDayOne.cs" />
+    <Compile Include="Challenges\DayThree\AdventChallengeDayThree.cs" />
     <Compile Include="Challenges\DayTwo\AdventChallengeDayTwo.cs" />
     <Compile Include="Challenges\DayOne\Elf.cs" />
     <Compile Include="Architecture\FileAccessHelper.cs" />
@@ -91,6 +92,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Challenges\DayTwo\day2_input_challenge1.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Challenges\DayThree\day3_input_challenge1.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
