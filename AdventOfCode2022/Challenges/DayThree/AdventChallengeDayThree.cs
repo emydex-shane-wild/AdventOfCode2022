@@ -16,6 +16,38 @@ using AdventOfCode2022.Challenges.DayTwo;
 
 namespace AdventOfCode2022.Challenges.DayThree
 {
+    public interface IElfAssignment
+    {
+        int ElfNo { get; }
+        int[] AssignedSections { get; }
+    }
+
+    public class ElfAssignment : IElfAssignment
+    {
+        public ElfAssignment(int elfNo, string sectionRange)
+        {
+            ElfNo = elfNo;
+            AssignedSections = GatherSectionsFromRange(sectionRange);
+        }
+
+        private int[] GatherSectionsFromRange(string sectionRange)
+        {
+            var startEndRange = sectionRange.Split('-').Select(n => int.TryParse(n, out var num) ? (int?)num : null).ToArray();
+            if(startEndRange.Any(n => n == null)) throw new Exception("Numbers were not correctly parsed.");
+            var sections = new List<int>();
+            for (var i = startEndRange[0]; i <= startEndRange[1]; i++)
+            {
+                sections.Add(i.Value);
+            }
+            return sections.ToArray();
+        }
+
+        public int ElfNo { get; }
+        public int[] AssignedSections { get; }
+
+        
+    }
+
     public class AdventChallengeDayThree : AdventChallengeBase
     {
         #region Private Members
