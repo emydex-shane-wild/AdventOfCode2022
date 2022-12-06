@@ -10,6 +10,7 @@
 #endregion
 
 using System;
+using System.IO;
 using System.Linq;
 using AdventOfCode2022.Challenges.DayTwo;
 
@@ -27,21 +28,7 @@ namespace AdventOfCode2022.Challenges.DaySix
         {
             FileExtensions.ProcessStream("day6_input_challenge1", r =>
                                                                   {
-                                                                      while (r.Peek() >= 0)
-                                                                      {
-                                                                          var line = r.ReadLine();
-                                                                          var lineLength = line.Length;
-
-                                                                          for (var i = 0; i < lineLength; i++)
-                                                                          {
-                                                                              var checkString = line.Substring(i, 4);
-                                                                              if(AreCharsUnique(checkString))
-                                                                              {
-                                                                                  Console.WriteLine($"The number of processed characters before marker are {i+4}.");
-                                                                                  break;
-                                                                              }
-                                                                          }
-                                                                      }
+                                                                      Console.WriteLine($"The number of processed characters before marker are {CalculateProcessedCharacters(r, 4)}.");
                                                                   });
         }
 
@@ -49,21 +36,30 @@ namespace AdventOfCode2022.Challenges.DaySix
         {
             FileExtensions.ProcessStream("day6_input_challenge1", r =>
                                                                   {
-                                                                      while (r.Peek() >= 0)
-                                                                      {
-                                                                          var line = r.ReadLine();
-                                                                          var lineLength = line.Length;
-                                                                          for (var i = 0; i < lineLength; i++)
-                                                                          {
-                                                                              var checkString = line.Substring(i, 14);
-                                                                              if(AreCharsUnique(checkString))
-                                                                              {
-                                                                                  Console.WriteLine($"The number of processed characters before marker are {i+14}.");
-                                                                                  break;
-                                                                              }
-                                                                          }
-                                                                      }
+                                                                      Console.WriteLine($"The number of processed characters before marker are {CalculateProcessedCharacters(r, 14)}.");
                                                                   });
+        }
+
+        private int CalculateProcessedCharacters(StreamReader reader, int uniqueCharacterCount)
+        {
+            var processedCharCount = 0;
+            while (reader.Peek() >= 0)
+            {
+                var line = reader.ReadLine();
+                var lineLength = line.Length;
+
+                for (var i = 0; i < lineLength; i++)
+                {
+                    var checkString = line.Substring(i, uniqueCharacterCount);
+                    if(AreCharsUnique(checkString))
+                    {
+                        processedCharCount = i+uniqueCharacterCount;
+                        break;
+                    }
+                }
+            }
+
+            return processedCharCount;
         }
 
         private bool AreCharsUnique(string checkString)
