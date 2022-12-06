@@ -13,6 +13,12 @@ using System.Collections.Generic;
 
 namespace AdventOfCode2022.Challenges.DayFive
 {
+    public interface IStackMultipleCrates : ICrateStack
+    {
+        void AddCratesToStack(Stack<ICrate> crates);
+        Stack<ICrate> PickCratesFromTopOfStack(int crateCount);
+    }
+
     public interface ICrateStack
     {
         int StackNumber { get; }
@@ -22,7 +28,7 @@ namespace AdventOfCode2022.Challenges.DayFive
         void AddCrateToStack(ICrate crate);
     }
 
-    public class CrateStack : ICrateStack
+    public class CrateStack : IStackMultipleCrates
     {
         private Stack<ICrate> _stack = new Stack<ICrate>();
 
@@ -52,6 +58,31 @@ namespace AdventOfCode2022.Challenges.DayFive
         public void AddCrateToStack(ICrate crate)
         {
             _stack.Push(crate);
+        }
+
+        #endregion
+
+        #region Implementation of IStackMultipleCrates
+
+        public void AddCratesToStack(Stack<ICrate> crates)
+        {
+            while(crates.Count > 0)
+            {
+                _stack.Push(crates.Pop());
+            }
+        }
+
+        public Stack<ICrate> PickCratesFromTopOfStack(int crateCount)
+        {
+            var stack = new Stack<ICrate>();
+            var crateCountToTake = _stack.Count < crateCount ? stack.Count : crateCount;
+
+            for (var i = 0; i < crateCountToTake; i++)
+            {
+                stack.Push(_stack.Pop());
+            }
+
+            return stack;
         }
 
         #endregion

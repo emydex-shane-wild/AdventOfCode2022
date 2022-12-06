@@ -56,7 +56,14 @@ namespace AdventOfCode2022.Challenges.DayFive
 
         private void PerformDirectionWithMultiMove(IDictionary<int, ICrateStack> stacks, Queue<IDirective> directives)
         {
-            throw new NotImplementedException();
+            while(directives.Count > 0)
+            {
+                var directive = directives.Dequeue();
+                if(stacks[directive.SourceStack] is IStackMultipleCrates sourceStack && stacks[directive.TargetStack] is IStackMultipleCrates targetStack)
+                {
+                    targetStack.AddCratesToStack(sourceStack.PickCratesFromTopOfStack(directive.AmountToMove));
+                }
+            }
         }
 
         private void PerformDirection(IDictionary<int, ICrateStack> stacks, Queue<IDirective> directives)
