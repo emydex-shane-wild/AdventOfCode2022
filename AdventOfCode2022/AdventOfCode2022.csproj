@@ -68,6 +68,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Challenges\DayFive\AdventChallengeDayFive.cs" />
+    <Compile Include="Challenges\DayFive\Crate.cs" />
+    <Compile Include="Challenges\DayFive\CrateStack.cs" />
+    <Compile Include="Challenges\DayFive\Movement.cs" />
     <Compile Include="Challenges\DayOne\AdventChallengeDayOne.cs" />
     <Compile Include="Challenges\DayFour\AdventChallengeDayFour.cs" />
     <Compile Include="Challenges\DayThree\AdventChallengeDayThree.cs" />
@@ -98,6 +102,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Challenges\DayFour\day4_input_challenge1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Challenges\DayFive\day5_input_challenge1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,26 +1,32 @@
 ﻿#region License Information
 
 // **********************************************************************************************************************************
-// StringExtensions.cs
-// Last Modified: 2022/12/02 12:20 AM
+// Crate.cs
+// Last Modified: 2022/12/06 11:57 AM
 // Last Modified By: Shane Wild
 // Copyright Emydex Technology Ltd @2022
 // **********************************************************************************************************************************
 
 #endregion
 
-namespace AdventOfCode2022.Architecture.Extensions
+namespace AdventOfCode2022.Challenges.DayFive
 {
-    public static class StringExtensions
+    public interface ICrate
     {
-        public static bool IsNullOrEmpty(this string str)
+        char SuppliesCode { get; }
+    }
+
+    public class Crate : ICrate
+    {
+        public Crate(char suppliesCode)
         {
-            return string.IsNullOrEmpty(str);
+            SuppliesCode = suppliesCode;
         }
 
-        public static bool IsNullOrEmptyOrWhiteSpace(this string str)
-        {
-            return str.IsNullOrEmpty() || string.IsNullOrWhiteSpace(str);
-        }
+        #region Implementation of ICrate
+
+        public char SuppliesCode { get; }
+
+        #endregion
     }
 }
