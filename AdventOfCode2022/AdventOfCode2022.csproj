@@ -114,6 +114,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Challenges\Day06\day6_input_challenge1.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Challenges\Day07\day7_input_challenge1.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
