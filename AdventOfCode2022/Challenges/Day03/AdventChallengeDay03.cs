@@ -12,43 +12,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using AdventOfCode2022.Challenges.DayTwo;
+using AdventOfCode2022.Architecture.Extensions;
 
-namespace AdventOfCode2022.Challenges.DayThree
+namespace AdventOfCode2022.Challenges.Day03
 {
-    public interface IElfAssignment
-    {
-        int ElfNo { get; }
-        int[] AssignedSections { get; }
-    }
-
-    public class ElfAssignment : IElfAssignment
-    {
-        public ElfAssignment(int elfNo, string sectionRange)
-        {
-            ElfNo = elfNo;
-            AssignedSections = GatherSectionsFromRange(sectionRange);
-        }
-
-        private int[] GatherSectionsFromRange(string sectionRange)
-        {
-            var startEndRange = sectionRange.Split('-').Select(n => int.TryParse(n, out var num) ? (int?)num : null).ToArray();
-            if(startEndRange.Any(n => n == null)) throw new Exception("Numbers were not correctly parsed.");
-            var sections = new List<int>();
-            for (var i = startEndRange[0]; i <= startEndRange[1]; i++)
-            {
-                sections.Add(i.Value);
-            }
-            return sections.ToArray();
-        }
-
-        public int ElfNo { get; }
-        public int[] AssignedSections { get; }
-
-        
-    }
-
-    public class AdventChallengeDayThree : AdventChallengeBase
+    public class AdventChallengeDay03 : AdventChallengeBase
     {
         #region Private Members
 
@@ -126,75 +94,6 @@ namespace AdventOfCode2022.Challenges.DayThree
         {
             return _validCharacters.IndexOf(c.ToString(), StringComparison.CurrentCulture) + 1;
         }
-
-        #endregion
-    }
-
-    public interface ISackGroup
-    {
-        #region Public Properties
-
-        bool IsGroupFull { get; }
-
-        #endregion
-
-        #region Public Methods
-
-        void AddItemSack(string sack);
-        char GetBadge();
-
-        #endregion
-    }
-
-    public class SackGroup : ISackGroup
-    {
-        #region Private Members
-
-        private readonly IList<string> _sacks = new List<string>();
-
-        #endregion
-
-        #region Public Methods
-
-        public void AddItemSack(string sack)
-        {
-            if (_sacks.Count == 3)
-            {
-                throw new Exception("Sack Group Full. Cannot have more than 3 sacks.");
-            }
-
-            _sacks.Add(sack);
-        }
-
-        public char GetBadge()
-        {
-            char? c = null;
-            var orderedSacks = _sacks.OrderBy(s => s.Length)
-                                     .ToArray();
-            var smallestSack = orderedSacks.FirstOrDefault();
-
-            for (var i = 0; i < (smallestSack?.Length ?? 0); i++)
-            {
-                var foundInSack1 = orderedSacks[1]
-                                           .IndexOf(smallestSack[i]
-                                                            .ToString(), StringComparison.InvariantCulture) > -1;
-                var foundInSack2 = orderedSacks[2]
-                                           .IndexOf(smallestSack[i]
-                                                            .ToString(), StringComparison.InvariantCulture) > -1;
-                if (foundInSack1 && foundInSack2)
-                {
-                    return smallestSack[i];
-                }
-            }
-
-            return '+';
-        }
-
-        #endregion
-
-        #region ISackGroup
-
-        public bool IsGroupFull => _sacks.Count == 3;
 
         #endregion
     }

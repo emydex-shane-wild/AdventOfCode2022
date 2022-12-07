@@ -12,7 +12,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AdventOfCode2022.Challenges.DayOne
+namespace AdventOfCode2022.Challenges.Day01
 {
     public interface IElf
     {

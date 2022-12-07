@@ -16,9 +16,9 @@ using System.Linq;
 using AdventOfCode2022.Architecture;
 using AdventOfCode2022.Architecture.Extensions;
 
-namespace AdventOfCode2022.Challenges.DayOne
+namespace AdventOfCode2022.Challenges.Day01
 {
-    public class AdventChallengeDayOne : AdventChallengeBase
+    public class AdventChallengeDay01 : AdventChallengeBase
     {
         #region Protected Overrides
 

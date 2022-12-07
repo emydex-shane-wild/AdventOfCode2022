@@ -12,11 +12,11 @@
 using System;
 using System.IO;
 using System.Linq;
-using AdventOfCode2022.Challenges.DayTwo;
+using AdventOfCode2022.Architecture.Extensions;
 
-namespace AdventOfCode2022.Challenges.DaySix
+namespace AdventOfCode2022.Challenges.Day06
 {
-    public class AdventChallengeDaySix : AdventChallengeBase
+    public class AdventChallengeDay06 : AdventChallengeBase
     {
         #region Overrides of AdventChallengeBase
 

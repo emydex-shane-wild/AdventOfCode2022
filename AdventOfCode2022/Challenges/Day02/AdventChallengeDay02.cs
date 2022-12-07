@@ -10,30 +10,11 @@
 #endregion
 
 using System;
-using System.IO;
-using AdventOfCode2022.Architecture;
+using AdventOfCode2022.Architecture.Extensions;
 
-namespace AdventOfCode2022.Challenges.DayTwo
+namespace AdventOfCode2022.Challenges.Day02
 {
-    public static class FileExtensions
-    {
-        #region Public Static Methods
-
-        public static void ProcessStream(string resourceName, Action<StreamReader> fileProcessAction)
-        {
-            using (var memoryStream = new MemoryStream(FileAccessHelper.GetResourceData(resourceName)))
-            {
-                using (var reader = new StreamReader(memoryStream))
-                {
-                    fileProcessAction(reader);
-                }
-            }
-        }
-
-        #endregion
-    }
-
-    public class AdventChallengeDayTwo : AdventChallengeBase
+    public class AdventChallengeDay02 : AdventChallengeBase
     {
         #region Protected Overrides
 

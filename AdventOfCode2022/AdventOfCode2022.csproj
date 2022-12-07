@@ -68,16 +68,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Challenges\DayFive\AdventChallengeDayFive.cs" />
-    <Compile Include="Challenges\DaySix\AdventChallengeDaySix.cs" />
-    <Compile Include="Challenges\DayFive\Crate.cs" />
-    <Compile Include="Challenges\DayFive\CrateStack.cs" />
-    <Compile Include="Challenges\DayFive\Movement.cs" />
-    <Compile Include="Challenges\DayOne\AdventChallengeDayOne.cs" />
-    <Compile Include="Challenges\DayFour\AdventChallengeDayFour.cs" />
-    <Compile Include="Challenges\DayThree\AdventChallengeDayThree.cs" />
-    <Compile Include="Challenges\DayTwo\AdventChallengeDayTwo.cs" />
-    <Compile Include="Challenges\DayOne\Elf.cs" />
+    <Compile Include="Architecture\Extensions\FileExtensions.cs" />
+    <Compile Include="Challenges\Day03\ElfAssignment.cs" />
+    <Compile Include="Challenges\Day03\SackGroup.cs" />
+    <Compile Include="Challenges\Day05\AdventChallengeDay05.cs" />
+    <Compile Include="Challenges\Day07\AdventChallengeDay07.cs" />
+    <Compile Include="Challenges\Day06\AdventChallengeDay06.cs" />
+    <Compile Include="Challenges\Day05\Crate.cs" />
+    <Compile Include="Challenges\Day05\CrateStack.cs" />
+    <Compile Include="Challenges\Day05\Movement.cs" />
+    <Compile Include="Challenges\Day01\AdventChallengeDay01.cs" />
+    <Compile Include="Challenges\Day04\AdventChallengeDay04.cs" />
+    <Compile Include="Challenges\Day03\AdventChallengeDay03.cs" />
+    <Compile Include="Challenges\Day02\AdventChallengeDay02.cs" />
+    <Compile Include="Challenges\Day01\Elf.cs" />
     <Compile Include="Architecture\FileAccessHelper.cs" />
     <Compile Include="Architecture\Extensions\StringExtensions.cs" />
     <Compile Include="Providers\AdventChallengeProvider.cs" />
@@ -93,22 +97,23 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Challenges\DayOne\day1_input_challenge1.txt" />
+    <EmbeddedResource Include="Challenges\Day01\day1_input_challenge1.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Challenges\DayTwo\day2_input_challenge1.txt" />
+    <EmbeddedResource Include="Challenges\Day02\day2_input_challenge1.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Challenges\DayThree\day3_input_challenge1.txt" />
+    <EmbeddedResource Include="Challenges\Day03\day3_input_challenge1.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Challenges\DayFour\day4_input_challenge1.txt" />
+    <EmbeddedResource Include="Challenges\Day04\day4_input_challenge1.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Challenges\DayFive\day5_input_challenge1.txt" />
+    <EmbeddedResource Include="Challenges\Day05\day5_input_challenge1.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Challenges\DaySix\day6_input_challenge1.txt" />
+    <EmbeddedResource Include="Challenges\Day06\day6_input_challenge1.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

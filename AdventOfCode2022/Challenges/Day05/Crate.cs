@@ -9,7 +9,7 @@
 
 #endregion
 
-namespace AdventOfCode2022.Challenges.DayFive
+namespace AdventOfCode2022.Challenges.Day05
 {
     public interface ICrate
     {
