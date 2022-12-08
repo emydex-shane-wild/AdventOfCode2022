@@ -22,6 +22,7 @@ namespace AdventOfCode2022.Architecture.Ioc
         {
             var builder = new ContainerBuilder();
             builder.RegisterModule(new GeneralModule());
+            builder.RegisterModule(new Day07Module());
             Container = builder.Build();
         }
     }

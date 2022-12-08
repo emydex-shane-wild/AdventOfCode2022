@@ -68,7 +68,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Architecture\Extensions\CollectionExtensions.cs" />
     <Compile Include="Architecture\Extensions\FileExtensions.cs" />
+    <Compile Include="Architecture\Ioc\Modules\Day07Module.cs" />
     <Compile Include="Challenges\Day03\ElfAssignment.cs" />
     <Compile Include="Challenges\Day03\SackGroup.cs" />
     <Compile Include="Challenges\Day05\AdventChallengeDay05.cs" />
@@ -84,6 +86,17 @@
     <Compile Include="Challenges\Day01\Elf.cs" />
     <Compile Include="Architecture\FileAccessHelper.cs" />
     <Compile Include="Architecture\Extensions\StringExtensions.cs" />
+    <Compile Include="Challenges\Day07\ChangeDirectoryCommandParser.cs" />
+    <Compile Include="Challenges\Day07\CommandParser.cs" />
+    <Compile Include="Challenges\Day07\Directory.cs" />
+    <Compile Include="Challenges\Day07\DirectoryManager.cs" />
+    <Compile Include="Challenges\Day07\DirectoryOutputParser.cs" />
+    <Compile Include="Challenges\Day07\File.cs" />
+    <Compile Include="Challenges\Day07\FileOutputParser.cs" />
+    <Compile Include="Challenges\Day07\ListDirectoryCommandParser.cs" />
+    <Compile Include="Challenges\Day07\OutputParser.cs" />
+    <Compile Include="Challenges\Day07\OutputProcessor.cs" />
+    <Compile Include="Challenges\Day07\StringConstants.cs" />
     <Compile Include="Providers\AdventChallengeProvider.cs" />
     <Compile Include="Challenges\AdventChallengeBase.cs" />
     <Compile Include="Architecture\ApplicationStart.cs" />
