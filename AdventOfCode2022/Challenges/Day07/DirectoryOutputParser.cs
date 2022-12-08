@@ -22,11 +22,11 @@ namespace AdventOfCode2022.Challenges.Day07
 
         #region Overrides of OutputParser
 
-        protected override bool CanProcessOutputInternal(string output) => output.StartsWith(StringConstants.DirectoryListIdentity);
+        protected override bool CanProcessOutputInternal(string output) => output.StartsWith(Constants.DirectoryListIdentity);
 
         protected override void ProcessOutputInternal(string output)
         {
-            var directoryName = output.Replace($"{StringConstants.DirectoryListIdentity} ", "");
+            var directoryName = output.Replace($"{Constants.DirectoryListIdentity} ", "");
             var dir = _directoryManager.GetDirectory(directoryName);
             if(dir == null) _directoryManager.CreateDirectory(directoryName);
         }

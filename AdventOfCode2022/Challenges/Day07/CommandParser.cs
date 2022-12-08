@@ -39,7 +39,7 @@ namespace AdventOfCode2022.Challenges.Day07
 
         protected string GetCommandArgument(string command)
         {
-            return command.Replace($"{StringConstants.CommandPrefix} {CommandTrigger} ", "");
+            return command.Replace($"{Constants.CommandPrefix} {CommandTrigger} ", "");
         }
 
         #endregion
@@ -48,7 +48,7 @@ namespace AdventOfCode2022.Challenges.Day07
 
         public bool CanProcessCommand(string command)
         {
-            return command.StartsWith($"{StringConstants.CommandPrefix} {CommandTrigger}");
+            return command.StartsWith($"{Constants.CommandPrefix} {CommandTrigger}");
         }
 
         public void ProcessCommand(string command, Queue<string> remainingCommands)

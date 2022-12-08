@@ -33,7 +33,7 @@ namespace AdventOfCode2022.Challenges.Day07
 
         #region Protected Properties
 
-        protected override string CommandTrigger => StringConstants.CommandListDirectory;
+        protected override string CommandTrigger => Constants.CommandListDirectory;
 
         #endregion
 

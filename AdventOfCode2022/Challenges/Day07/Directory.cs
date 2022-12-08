@@ -92,7 +92,7 @@ namespace AdventOfCode2022.Challenges.Day07
 
         public bool HasFiles() => _files.Count > 0;
 
-        public bool IsTopLevel() => Path == StringConstants.RootDirectoryPath;
+        public bool IsTopLevel() => Path == Constants.RootDirectoryPath;
         public IDirectory[] GetDirectories()
         {
             return _directories.IsNullOrEmpty() ? new IDirectory[]{} : _directories.Values.ToArray();

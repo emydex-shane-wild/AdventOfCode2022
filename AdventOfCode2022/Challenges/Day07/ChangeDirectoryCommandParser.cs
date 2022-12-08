@@ -33,7 +33,7 @@ namespace AdventOfCode2022.Challenges.Day07
 
         #region Protected Properties
 
-        protected override string CommandTrigger => StringConstants.CommandChangeDirectory;
+        protected override string CommandTrigger => Constants.CommandChangeDirectory;
 
         #endregion
 
@@ -42,7 +42,7 @@ namespace AdventOfCode2022.Challenges.Day07
         protected override void ProcessCommandInternal(string command, Queue<string> remainingCommands)
         {
             var argument = GetCommandArgument(command);
-            if(argument == StringConstants.ParentDirectoryKey)
+            if(argument == Constants.ParentDirectoryKey)
             {
                 var currentDirectory = _directoryManager.GetCurrentDirectory();
                 if(currentDirectory.ParentDirectory != null)

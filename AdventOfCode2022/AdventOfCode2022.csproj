@@ -96,7 +96,7 @@
     <Compile Include="Challenges\Day07\ListDirectoryCommandParser.cs" />
     <Compile Include="Challenges\Day07\OutputParser.cs" />
     <Compile Include="Challenges\Day07\OutputProcessor.cs" />
-    <Compile Include="Challenges\Day07\StringConstants.cs" />
+    <Compile Include="Challenges\Day07\Constants.cs" />
     <Compile Include="Providers\AdventChallengeProvider.cs" />
     <Compile Include="Challenges\AdventChallengeBase.cs" />
     <Compile Include="Architecture\ApplicationStart.cs" />

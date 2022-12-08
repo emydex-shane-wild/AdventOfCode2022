@@ -11,7 +11,7 @@
 
 namespace AdventOfCode2022.Challenges.Day07
 {
-    public static class StringConstants
+    public static class Constants
     {
         #region Static Fields and Constants
 
@@ -23,5 +23,8 @@ namespace AdventOfCode2022.Challenges.Day07
         public static string DirectoryListIdentity = "dir";
 
         #endregion
+
+        public static int DiskSize = 70000000;
+        public static int RequiredUpgradeSize = 30000000;
     }
 }
